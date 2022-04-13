@@ -1,0 +1,1497 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- ========== Tools ========== -->
+
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Combat Extended</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+
+
+        <!-- 6x20mm Caseless -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingCategoryDef>
+              <defName>Ammo6x20mmCaseless</defName>
+              <label>6x20mm Caseless</label>
+              <parent>AmmoPistols</parent>
+              <iconPath>UI/Icons/ThingCategories/CaliberPistol</iconPath>
+            </ThingCategoryDef>
+          </value>
+        </li>
+
+        <!-- ==================== AmmoSet ========================== -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <CombatExtended.AmmoSetDef>
+              <defName>AmmoSet_6x20mmCaseless</defName>
+              <label>6x20mm Caseless / 6x18mm Charged</label>
+              <ammoTypes>
+                <Ammo_6x20mmCaseless_FMJ>Bullet_6x20mmCaseless_FMJ</Ammo_6x20mmCaseless_FMJ>
+                <Ammo_6x20mmCaseless_AP>Bullet_6x20mmCaseless_AP</Ammo_6x20mmCaseless_AP>
+                <Ammo_6x20mmCaseless_HP>Bullet_6x20mmCaseless_HP</Ammo_6x20mmCaseless_HP>
+                <Ammo_6x20mmCaseless_Incendiary>Bullet_6x20mmCaseless_Incendiary</Ammo_6x20mmCaseless_Incendiary>
+                <Ammo_6x20mmCaseless_HE>Bullet_6x20mmCaseless_HE</Ammo_6x20mmCaseless_HE>
+                <Ammo_6x18mmCharged>Bullet_6x18mmCharged</Ammo_6x18mmCharged>
+                <Ammo_6x18mmCharged_AP>Bullet_6x18mmCharged_AP</Ammo_6x18mmCharged_AP>
+                <Ammo_6x18mmCharged_Ion>Bullet_6x18mmCharged_Ion</Ammo_6x18mmCharged_Ion>
+              </ammoTypes>
+            </CombatExtended.AmmoSetDef>
+          </value>
+        </li>
+
+        <!-- ==================== Ammo ========================== -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" Name="6x20mmCaselessBase" ParentName="SmallAmmoBase" Abstract="True">
+              <description>Caseless bullet with a solid propellant enveloping the projectile. Guns chambered in 6x20mm caseless can also be chambered in 6x18mm charged.</description>
+              <statBases>
+                <Mass>0.008</Mass>
+                <Bulk>0.01</Bulk>
+              </statBases>
+              <tradeTags>
+                <li>CE_AutoEnableTrade</li>
+                <li>CE_AutoEnableCrafting</li>
+              </tradeTags>
+              <thingCategories>
+                <li>Ammo6x20mmCaseless</li>
+              </thingCategories>
+              <stackLimit>5000</stackLimit>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="6x20mmCaselessBase">
+              <defName>Ammo_6x20mmCaseless_FMJ</defName>
+              <label>6x20mm Caseless cartridge (FMJ)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Pistol/FMJ</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.04</MarketValue>
+              </statBases>
+              <ammoClass>FullMetalJacket</ammoClass>
+              <cookOffProjectile>Bullet_6x20mmCaseless_FMJ</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="6x20mmCaselessBase">
+              <defName>Ammo_6x20mmCaseless_AP</defName>
+              <label>6x20mm Caseless cartridge (AP)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Pistol/AP</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.04</MarketValue>
+              </statBases>
+              <ammoClass>ArmorPiercing</ammoClass>
+              <cookOffProjectile>Bullet_6x20mmCaseless_AP</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="6x20mmCaselessBase">
+              <defName>Ammo_6x20mmCaseless_HP</defName>
+              <label>6x20mm Caseless cartridge (HP)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Pistol/HP</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.04</MarketValue>
+              </statBases>
+              <ammoClass>HollowPoint</ammoClass>
+              <cookOffProjectile>Bullet_6x20mmCaseless_HP</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="6x20mmCaselessBase">
+              <defName>Ammo_6x20mmCaseless_Incendiary</defName>
+              <label>6x20mm Caseless cartridge (AP-I)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Pistol/Incendiary</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.06</MarketValue>
+              </statBases>
+              <ammoClass>IncendiaryAP</ammoClass>
+              <cookOffProjectile>Bullet_6x20mmCaseless_Incendiary</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="6x20mmCaselessBase">
+              <defName>Ammo_6x20mmCaseless_HE</defName>
+              <label>6x20mm Caseless cartridge (HE)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Pistol/HE</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.09</MarketValue>
+              </statBases>
+              <ammoClass>ExplosiveAP</ammoClass>
+              <cookOffProjectile>Bullet_6x20mmCaseless_HE</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <!-- ================== Projectiles ================== -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" Name="Base6x20mmCaselessBullet" ParentName="BaseBullet" Abstract="true">
+              <thingClass>CombatExtended.BulletCE</thingClass>
+              <graphicData>
+			          <texPath>Things/Projectile/Bullet_Small</texPath>
+			          <graphicClass>Graphic_Single</graphicClass>
+		          </graphicData>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageDef>Bullet</damageDef>
+                <speed>90</speed>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6x20mmCaselessBullet">
+              <defName>Bullet_6x20mmCaseless_FMJ</defName>
+              <label>6x20mm Caseless bullet (FMJ)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>11</damageAmountBase>
+                <armorPenetrationSharp>5</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>10.88</armorPenetrationBlunt>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6x20mmCaselessBullet">
+              <defName>Bullet_6x20mmCaseless_AP</defName>
+              <label>6x20mm Caseless bullet (AP)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>7</damageAmountBase>
+                <armorPenetrationSharp>10</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>10.88</armorPenetrationBlunt>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+        
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6x20mmCaselessBullet">
+              <defName>Bullet_6x20mmCaseless_HP</defName>
+              <label>6x20mm Caseless bullet (HP)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>13</damageAmountBase>
+                <armorPenetrationSharp>3</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>10.88</armorPenetrationBlunt>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+          
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6x20mmCaselessBullet">
+              <defName>Bullet_6x20mmCaseless_Incendiary</defName>
+              <label>6x20mm Caseless bullet (AP-I)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>7</damageAmountBase>
+                <armorPenetrationSharp>10</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>10.88</armorPenetrationBlunt>
+                <secondaryDamage>
+				          <li>
+			  	          <def>Flame_Secondary</def>
+			  	          <amount>4</amount>
+				          </li>
+		            </secondaryDamage>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+        
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6x20mmCaselessBullet">
+              <defName>Bullet_6x20mmCaseless_HE</defName>
+              <label>6x20mm Caseless bullet (HE)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>11</damageAmountBase>
+                <armorPenetrationSharp>5</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>10.88</armorPenetrationBlunt>
+                <secondaryDamage>
+				          <li>
+			  	          <def>Bomb_Secondary</def>
+			  	          <amount>5</amount>
+				          </li>
+		            </secondaryDamage>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <!-- ==================== Recipes ========================== -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <RecipeDef ParentName="AmmoRecipeBase">
+              <defName>MakeAmmo_6x20mmCaseless_FMJ</defName>
+              <label>make 6x20mm Caseless (FMJ) cartridge x500</label>
+              <description>Craft 500 6x20mm Caseless (FMJ) cartridges.</description>
+              <jobString>Making 6x20mm Caseless (FMJ) cartridges.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>9</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>Steel</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Ammo_6x20mmCaseless_FMJ>500</Ammo_6x20mmCaseless_FMJ>
+              </products>
+              <workAmount>900</workAmount>
+            </RecipeDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <RecipeDef ParentName="AmmoRecipeBase">
+              <defName>MakeAmmo_6x20mmCaseless_AP</defName>
+              <label>make 6x20mm Caseless (AP) cartridge x500</label>
+              <description>Craft 500 6x20mm Caseless (AP) cartridges.</description>
+              <jobString>Making 6x20mm Caseless (AP) cartridges.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>9</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>Steel</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Ammo_6x20mmCaseless_AP>500</Ammo_6x20mmCaseless_AP>
+              </products>
+              <workAmount>900</workAmount>
+            </RecipeDef>
+          </value>
+        </li>
+        
+      <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <RecipeDef ParentName="AmmoRecipeBase">
+              <defName>MakeAmmo_6x20mmCaseless_HP</defName>
+              <label>make 6x20mm Caseless (HP) cartridge x500</label>
+              <description>Craft 500 6x20mm Caseless (HP) cartridges.</description>
+              <jobString>Making 6x20mm Caseless (HP) cartridges.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>9</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>Steel</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Ammo_6x20mmCaseless_HP>500</Ammo_6x20mmCaseless_HP>
+              </products>
+              <workAmount>900</workAmount>
+            </RecipeDef>
+          </value>
+        </li>
+         
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <RecipeDef ParentName="AmmoRecipeBase">
+              <defName>MakeAmmo_6x20mmCaseless_Incendiary</defName>
+              <label>make 6x20mm Caseless (AP-I) cartridge x500</label>
+              <description>Craft 500 6x20mm Caseless (AP-I) cartridges.</description>
+              <jobString>Making 6x20mm Caseless (AP-I) cartridges.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>9</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Prometheum</li>
+                    </thingDefs>
+                  </filter>
+                  <count>1</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>Steel</li>
+                  <li>Prometheum</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Ammo_6x20mmCaseless_Incendiary>500</Ammo_6x20mmCaseless_Incendiary>
+              </products>
+              <workAmount>1300</workAmount>
+            </RecipeDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <RecipeDef ParentName="AmmoRecipeBase">
+              <defName>MakeAmmo_6x20mmCaseless_HE</defName>
+              <label>make 6x20mm Caseless (HE) cartridge x500</label>
+              <description>Craft 500 6x20mm Caseless (HE) cartridges.</description>
+              <jobString>Making 6x20mm Caseless (HE) cartridges.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>9</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>FSX</li>
+                    </thingDefs>
+                  </filter>
+                  <count>2</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>Steel</li>
+                  <li>FSX</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Ammo_6x20mmCaseless_HE>500</Ammo_6x20mmCaseless_HE>
+              </products>
+              <workAmount>1700</workAmount>
+            </RecipeDef>
+          </value>
+        </li>
+        
+      
+    
+      <!-- 6x26mm Caseless-->
+        
+      <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingCategoryDef>
+              <defName>Ammo6x26mmCaseless</defName>
+              <label>6x26mm Caseless</label>
+              <parent>AmmoRifles</parent>
+              <iconPath>UI/Icons/ThingCategories/CaliberRifle</iconPath>
+            </ThingCategoryDef>
+          </value>
+        </li>
+
+        <!-- ==================== AmmoSet ========================== -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <CombatExtended.AmmoSetDef>
+              <defName>AmmoSet_6x26mmCaseless</defName>
+              <label>6x26mm Caseless / 6x24mm Charged</label>
+              <ammoTypes>
+                <Ammo_6x26mmCaseless_FMJ>Bullet_6x26mmCaseless_FMJ</Ammo_6x26mmCaseless_FMJ>
+                <Ammo_6x26mmCaseless_AP>Bullet_6x26mmCaseless_AP</Ammo_6x26mmCaseless_AP>
+                <Ammo_6x26mmCaseless_HP>Bullet_6x26mmCaseless_HP</Ammo_6x26mmCaseless_HP>
+                <Ammo_6x26mmCaseless_Incendiary>Bullet_6x26mmCaseless_Incendiary</Ammo_6x26mmCaseless_Incendiary>
+                <Ammo_6x26mmCaseless_HE>Bullet_6x26mmCaseless_HE</Ammo_6x26mmCaseless_HE>
+                <Ammo_6x26mmCaseless_Sabot>Bullet_6x26mmCaseless_Sabot</Ammo_6x26mmCaseless_Sabot>
+                <Ammo_6x24mmCharged>Bullet_6x24mmCharged</Ammo_6x24mmCharged>
+                <Ammo_6x24mmCharged_AP>Bullet_6x24mmCharged_AP</Ammo_6x24mmCharged_AP>
+                <Ammo_6x24mmCharged_Ion>Bullet_6x24mmCharged_Ion</Ammo_6x24mmCharged_Ion>
+              </ammoTypes>
+            </CombatExtended.AmmoSetDef>
+          </value>
+        </li>
+
+        <!-- ==================== Ammo ========================== -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" Name="6x26mmCaselessBase" ParentName="SmallAmmoBase" Abstract="True">
+              <description>Caseless bullet with a solid propellant enveloping the projectile. Guns chambered in 6x26mm caseless can also be chambered in 6x24mm charged.</description>
+              <statBases>
+                <Mass>0.01</Mass>
+                <Bulk>0.01</Bulk>
+              </statBases>
+              <tradeTags>
+                <li>CE_AutoEnableTrade</li>
+                <li>CE_AutoEnableCrafting</li>
+              </tradeTags>
+              <thingCategories>
+                <li>Ammo6x26mmCaseless</li>
+              </thingCategories>
+              <stackLimit>5000</stackLimit>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="6x26mmCaselessBase">
+              <defName>Ammo_6x26mmCaseless_FMJ</defName>
+              <label>6x26mm Caseless cartridge (FMJ)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Rifle/FMJ</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.05</MarketValue>
+              </statBases>
+              <ammoClass>FullMetalJacket</ammoClass>
+              <cookOffProjectile>Bullet_6x26mmCaseless_FMJ</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="6x26mmCaselessBase">
+              <defName>Ammo_6x26mmCaseless_AP</defName>
+              <label>6x26mm Caseless cartridge (AP)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Rifle/AP</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.05</MarketValue>
+              </statBases>
+              <ammoClass>ArmorPiercing</ammoClass>
+              <cookOffProjectile>Bullet_6x26mmCaseless_AP</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="6x26mmCaselessBase">
+              <defName>Ammo_6x26mmCaseless_HP</defName>
+              <label>6x26mm Caseless cartridge (HP)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Rifle/HP</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.05</MarketValue>
+              </statBases>
+              <ammoClass>HollowPoint</ammoClass>
+              <cookOffProjectile>Bullet_6x26mmCaseless_HP</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="6x26mmCaselessBase">
+              <defName>Ammo_6x26mmCaseless_Incendiary</defName>
+              <label>6x26mm Caseless cartridge (AP-I)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Rifle/Incendiary</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.07</MarketValue>
+              </statBases>
+              <ammoClass>IncendiaryAP</ammoClass>
+              <cookOffProjectile>Bullet_6x26mmCaseless_Incendiary</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="6x26mmCaselessBase">
+              <defName>Ammo_6x26mmCaseless_HE</defName>
+              <label>6x26mm Caseless cartridge (HE)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Rifle/HE</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.09</MarketValue>
+              </statBases>
+              <ammoClass>ExplosiveAP</ammoClass>
+              <cookOffProjectile>Bullet_6x26mmCaseless_HE</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+        
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="6x26mmCaselessBase">
+              <defName>Ammo_6x26mmCaseless_Sabot</defName>
+              <label>6x26mm Caseless cartridge (Sabot)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Rifle/Sabot</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.06</MarketValue>
+                <Mass>0.009</Mass>
+              </statBases>
+              <ammoClass>Sabot</ammoClass>
+              <cookOffProjectile>Bullet_6x26mmCaseless_Sabot</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <!-- ================== Projectiles ================== -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" Name="Base6x26mmCaselessBullet" ParentName="BaseBullet" Abstract="true">
+              <thingClass>CombatExtended.BulletCE</thingClass>
+              <graphicData>
+			          <texPath>Things/Projectile/Bullet_Small</texPath>
+			          <graphicClass>Graphic_Single</graphicClass>
+		          </graphicData>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageDef>Bullet</damageDef>
+                <speed>174</speed>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6x26mmCaselessBullet">
+              <defName>Bullet_6x26mmCaseless_FMJ</defName>
+              <label>6x26mm Caseless bullet (FMJ)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>15</damageAmountBase>
+                <armorPenetrationSharp>6</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>32.4</armorPenetrationBlunt>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6x26mmCaselessBullet">
+              <defName>Bullet_6x26mmCaseless_AP</defName>
+              <label>6x26mm Caseless bullet (AP)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>9</damageAmountBase>
+                <armorPenetrationSharp>12</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>32.4</armorPenetrationBlunt>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+        
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6x26mmCaselessBullet">
+              <defName>Bullet_6x26mmCaseless_HP</defName>
+              <label>6x26mm Caseless bullet (HP)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>19</damageAmountBase>
+                <armorPenetrationSharp>3</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>32.4</armorPenetrationBlunt>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+          
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6x26mmCaselessBullet">
+              <defName>Bullet_6x26mmCaseless_Incendiary</defName>
+              <label>6x26mm Caseless bullet (AP-I)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>9</damageAmountBase>
+                <armorPenetrationSharp>12</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>32.4</armorPenetrationBlunt>
+                <secondaryDamage>
+				          <li>
+			  	          <def>Flame_Secondary</def>
+			  	          <amount>5</amount>
+				          </li>
+		            </secondaryDamage>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+        
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6x26mmCaselessBullet">
+              <defName>Bullet_6x26mmCaseless_HE</defName>
+              <label>6x26mm Caseless bullet (HE)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>15</damageAmountBase>
+                <armorPenetrationSharp>6</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>32.4</armorPenetrationBlunt>
+                <secondaryDamage>
+				          <li>
+			  	          <def>Bomb_Secondary</def>
+			  	          <amount>8</amount>
+				          </li>
+		            </secondaryDamage>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+        
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6x26mmCaselessBullet">
+              <defName>Bullet_6x26mmCaseless_Sabot</defName>
+              <label>6x26mm Caseless bullet (Sabot)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>8</damageAmountBase>
+                <armorPenetrationSharp>19</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>41.2</armorPenetrationBlunt>
+                <speed>262</speed>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <!-- ==================== Recipes ========================== -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <RecipeDef ParentName="AmmoRecipeBase">
+              <defName>MakeAmmo_6x26mmCaseless_FMJ</defName>
+              <label>make 6x26mm Caseless (FMJ) cartridge x500</label>
+              <description>Craft 500 6x26mm Caseless (FMJ) cartridges.</description>
+              <jobString>Making 6x26mm Caseless (FMJ) cartridges.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>13</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>Steel</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Ammo_6x26mmCaseless_FMJ>500</Ammo_6x26mmCaseless_FMJ>
+              </products>
+              <workAmount>1300</workAmount>
+            </RecipeDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <RecipeDef ParentName="AmmoRecipeBase">
+              <defName>MakeAmmo_6x26mmCaseless_AP</defName>
+              <label>make 6x26mm Caseless (AP) cartridge x500</label>
+              <description>Craft 500 6x26mm Caseless (AP) cartridges.</description>
+              <jobString>Making 6x26mm Caseless (AP) cartridges.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>13</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>Steel</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Ammo_6x26mmCaseless_AP>500</Ammo_6x26mmCaseless_AP>
+              </products>
+              <workAmount>1300</workAmount>
+            </RecipeDef>
+          </value>
+        </li>
+        
+      <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <RecipeDef ParentName="AmmoRecipeBase">
+              <defName>MakeAmmo_6x26mmCaseless_HP</defName>
+              <label>make 6x26mm Caseless (HP) cartridge x500</label>
+              <description>Craft 500 6x26mm Caseless (HP) cartridges.</description>
+              <jobString>Making 6x26mm Caseless (HP) cartridges.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>13</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>Steel</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Ammo_6x26mmCaseless_HP>500</Ammo_6x26mmCaseless_HP>
+              </products>
+              <workAmount>1300</workAmount>
+            </RecipeDef>
+          </value>
+        </li>
+         
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <RecipeDef ParentName="AmmoRecipeBase">
+              <defName>MakeAmmo_6x26mmCaseless_Incendiary</defName>
+              <label>make 6x26mm Caseless (AP-I) cartridge x500</label>
+              <description>Craft 500 6x26mm Caseless (AP-I) cartridges.</description>
+              <jobString>Making 6x26mm Caseless (AP-I) cartridges.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>13</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Prometheum</li>
+                    </thingDefs>
+                  </filter>
+                  <count>1</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>Steel</li>
+                  <li>Prometheum</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Ammo_6x26mmCaseless_Incendiary>500</Ammo_6x26mmCaseless_Incendiary>
+              </products>
+              <workAmount>1700</workAmount>
+            </RecipeDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <RecipeDef ParentName="AmmoRecipeBase">
+              <defName>MakeAmmo_6x26mmCaseless_HE</defName>
+              <label>make 6x26mm Caseless (HE) cartridge x500</label>
+              <description>Craft 500 6x26mm Caseless (HE) cartridges.</description>
+              <jobString>Making 6x26mm Caseless (HE) cartridges.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>13</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>FSX</li>
+                    </thingDefs>
+                  </filter>
+                  <count>2</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>Steel</li>
+                  <li>FSX</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Ammo_6x26mmCaseless_HE>500</Ammo_6x26mmCaseless_HE>
+              </products>
+              <workAmount>2100</workAmount>
+            </RecipeDef>
+          </value>
+        </li>
+        
+        <li Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <RecipeDef ParentName="AmmoRecipeBase">
+                <defName>MakeAmmo_6x26mmCaseless_Sabot</defName>
+                <label>make 6x26mm Caseless (Sabot) cartridge x500</label>
+                <description>Craft 500 6x26mm Caseless (Sabot) cartridges.</description>
+                <jobString>Making 6x26mm Caseless (Sabot) cartridges.</jobString>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>7</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Uranium</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Chemfuel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>1</count>
+                 </li>		
+                </ingredients>
+                <fixedIngredientFilter>
+                  <thingDefs>
+                    <li>Steel</li>
+                    <li>Uranium</li>
+                    <li>Chemfuel</li>	
+                  </thingDefs>
+                </fixedIngredientFilter>
+                <products>
+                  <Ammo_6x26mmCaseless_Sabot>500</Ammo_6x26mmCaseless_Sabot>
+                </products>
+                <workAmount>1500</workAmount>
+              </RecipeDef>
+            </value>
+          </li>
+        
+      
+      <!-- 8x37mm Caseless-->
+        
+      <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingCategoryDef>
+              <defName>Ammo8x37mmCaseless</defName>
+              <label>8x37mm Caseless</label>
+              <parent>AmmoRifles</parent>
+              <iconPath>UI/Icons/ThingCategories/CaliberRifle</iconPath>
+            </ThingCategoryDef>
+          </value>
+        </li>
+
+        <!-- ==================== AmmoSet ========================== -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <CombatExtended.AmmoSetDef>
+              <defName>AmmoSet_8x37mmCaseless</defName>
+              <label>8x37mm Caseless / 8x35mm Charged</label>
+              <ammoTypes>
+                <Ammo_8x37mmCaseless_FMJ>Bullet_8x37mmCaseless_FMJ</Ammo_8x37mmCaseless_FMJ>
+                <Ammo_8x37mmCaseless_AP>Bullet_8x37mmCaseless_AP</Ammo_8x37mmCaseless_AP>
+                <Ammo_8x37mmCaseless_HP>Bullet_8x37mmCaseless_HP</Ammo_8x37mmCaseless_HP>
+                <Ammo_8x37mmCaseless_Incendiary>Bullet_8x37mmCaseless_Incendiary</Ammo_8x37mmCaseless_Incendiary>
+                <Ammo_8x37mmCaseless_HE>Bullet_8x37mmCaseless_HE</Ammo_8x37mmCaseless_HE>
+                <Ammo_8x37mmCaseless_Sabot>Bullet_8x37mmCaseless_Sabot</Ammo_8x37mmCaseless_Sabot>
+                <Ammo_8x35mmCharged>Bullet_8x35mmCharged</Ammo_8x35mmCharged>
+                <Ammo_8x35mmCharged_AP>Bullet_8x35mmCharged_AP</Ammo_8x35mmCharged_AP>
+                <Ammo_8x35mmCharged_Ion>Bullet_8x35mmCharged_Ion</Ammo_8x35mmCharged_Ion>
+              </ammoTypes>
+            </CombatExtended.AmmoSetDef>
+          </value>
+        </li>
+
+        <!-- ==================== Ammo ========================== -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" Name="8x37mmCaselessBase" ParentName="SmallAmmoBase" Abstract="True">
+              <description>Caseless bullet with a solid propellant enveloping the projectile. Guns chambered in 8x37mm caseless can also be chambered in 8x35mm charged.</description>
+              <statBases>
+                <Mass>0.018</Mass>
+                <Bulk>0.01</Bulk>
+              </statBases>
+              <tradeTags>
+                <li>CE_AutoEnableTrade</li>
+                <li>CE_AutoEnableCrafting</li>
+              </tradeTags>
+              <thingCategories>
+                <li>Ammo8x37mmCaseless</li>
+              </thingCategories>
+              <stackLimit>5000</stackLimit>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="8x37mmCaselessBase">
+              <defName>Ammo_8x37mmCaseless_FMJ</defName>
+              <label>8x37mm Caseless cartridge (FMJ)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Rifle/FMJ</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.13</MarketValue>
+              </statBases>
+              <ammoClass>FullMetalJacket</ammoClass>
+              <cookOffProjectile>Bullet_8x37mmCaseless_FMJ</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="8x37mmCaselessBase">
+              <defName>Ammo_8x37mmCaseless_AP</defName>
+              <label>8x37mm Caseless cartridge (AP)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Rifle/AP</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.13</MarketValue>
+              </statBases>
+              <ammoClass>ArmorPiercing</ammoClass>
+              <cookOffProjectile>Bullet_8x37mmCaseless_AP</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="8x37mmCaselessBase">
+              <defName>Ammo_8x37mmCaseless_HP</defName>
+              <label>8x37mm Caseless cartridge (HP)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Rifle/HP</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.13</MarketValue>
+              </statBases>
+              <ammoClass>HollowPoint</ammoClass>
+              <cookOffProjectile>Bullet_8x37mmCaseless_HP</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="8x37mmCaselessBase">
+              <defName>Ammo_8x37mmCaseless_Incendiary</defName>
+              <label>8x37mm Caseless cartridge (AP-I)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Rifle/Incendiary</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.16</MarketValue>
+              </statBases>
+              <ammoClass>IncendiaryAP</ammoClass>
+              <cookOffProjectile>Bullet_8x37mmCaseless_Incendiary</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="8x37mmCaselessBase">
+              <defName>Ammo_8x37mmCaseless_HE</defName>
+              <label>8x37mm Caseless cartridge (HE)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Rifle/HE</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.23</MarketValue>
+              </statBases>
+              <ammoClass>ExplosiveAP</ammoClass>
+              <cookOffProjectile>Bullet_8x37mmCaseless_HE</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+        
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="8x37mmCaselessBase">
+              <defName>Ammo_8x37mmCaseless_Sabot</defName>
+              <label>8x37mm Caseless cartridge (Sabot)</label>
+              <graphicData>
+                <texPath>Things/Ammo/Rifle/Sabot</texPath>
+                <graphicClass>Graphic_StackCount</graphicClass>
+              </graphicData>
+              <statBases>
+                <MarketValue>0.14</MarketValue>
+                <Mass>0.015</Mass>
+              </statBases>
+              <ammoClass>Sabot</ammoClass>
+              <cookOffProjectile>Bullet_8x37mmCaseless_Sabot</cookOffProjectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <!-- ================== Projectiles ================== -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" Name="Base8x37mmCaselessBullet" ParentName="BaseBullet" Abstract="true">
+              <thingClass>CombatExtended.BulletCE</thingClass>
+              <graphicData>
+			          <texPath>Things/Projectile/Bullet_Small</texPath>
+			          <graphicClass>Graphic_Single</graphicClass>
+		          </graphicData>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageDef>Bullet</damageDef>
+                <speed>188</speed>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base8x37mmCaselessBullet">
+              <defName>Bullet_8x37mmCaseless_FMJ</defName>
+              <label>8x37mm Caseless bullet (FMJ)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>22</damageAmountBase>
+                <armorPenetrationSharp>8</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>53.8</armorPenetrationBlunt>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base8x37mmCaselessBullet">
+              <defName>Bullet_8x37mmCaseless_AP</defName>
+              <label>8x37mm Caseless bullet (AP)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>13</damageAmountBase>
+                <armorPenetrationSharp>16</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>53.8</armorPenetrationBlunt>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+        
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base8x37mmCaselessBullet">
+              <defName>Bullet_8x37mmCaseless_HP</defName>
+              <label>8x37mm Caseless bullet (HP)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>27</damageAmountBase>
+                <armorPenetrationSharp>4</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>32.4</armorPenetrationBlunt>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+          
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base8x37mmCaselessBullet">
+              <defName>Bullet_8x37mmCaseless_Incendiary</defName>
+              <label>8x37mm Caseless bullet (AP-I)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>13</damageAmountBase>
+                <armorPenetrationSharp>16</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>53.8</armorPenetrationBlunt>
+                <secondaryDamage>
+				          <li>
+			  	          <def>Flame_Secondary</def>
+			  	          <amount>7</amount>
+				          </li>
+		            </secondaryDamage>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+        
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base8x37mmCaselessBullet">
+              <defName>Bullet_8x37mmCaseless_HE</defName>
+              <label>8x37mm Caseless bullet (HE)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>22</damageAmountBase>
+                <armorPenetrationSharp>8</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>53.8</armorPenetrationBlunt>
+                <secondaryDamage>
+				          <li>
+			  	          <def>Bomb_Secondary</def>
+			  	          <amount>11</amount>
+				          </li>
+		            </secondaryDamage>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+        
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base8x37mmCaselessBullet">
+              <defName>Bullet_8x37mmCaseless_Sabot</defName>
+              <label>8x37mm Caseless bullet (Sabot)</label>
+              <projectile Class="CombatExtended.ProjectilePropertiesCE">
+                <damageAmountBase>11</damageAmountBase>
+                <armorPenetrationSharp>27</armorPenetrationSharp>
+		          	<armorPenetrationBlunt>68.3</armorPenetrationBlunt>
+                <speed>285</speed>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <!-- ==================== Recipes ========================== -->
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <RecipeDef ParentName="AmmoRecipeBase">
+              <defName>MakeAmmo_8x37mmCaseless_FMJ</defName>
+              <label>make 8x37mm Caseless (FMJ) cartridge x500</label>
+              <description>Craft 500 8x37mm Caseless (FMJ) cartridges.</description>
+              <jobString>Making 8x37mm Caseless (FMJ) cartridges.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>20</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>Steel</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Ammo_8x37mmCaseless_FMJ>500</Ammo_8x37mmCaseless_FMJ>
+              </products>
+              <workAmount>2000</workAmount>
+            </RecipeDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <RecipeDef ParentName="AmmoRecipeBase">
+              <defName>MakeAmmo_8x37mmCaseless_AP</defName>
+              <label>make 8x37mm Caseless (AP) cartridge x500</label>
+              <description>Craft 500 8x37mm Caseless (AP) cartridges.</description>
+              <jobString>Making 8x37mm Caseless (AP) cartridges.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>20</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>Steel</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Ammo_8x37mmCaseless_AP>500</Ammo_8x37mmCaseless_AP>
+              </products>
+              <workAmount>2000</workAmount>
+            </RecipeDef>
+          </value>
+        </li>
+        
+      <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <RecipeDef ParentName="AmmoRecipeBase">
+              <defName>MakeAmmo_8x37mmCaseless_HP</defName>
+              <label>make 8x37mm Caseless (HP) cartridge x500</label>
+              <description>Craft 500 8x37mm Caseless (HP) cartridges.</description>
+              <jobString>Making 8x37mm Caseless (HP) cartridges.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>20</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>Steel</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Ammo_8x37mmCaseless_HP>500</Ammo_8x37mmCaseless_HP>
+              </products>
+              <workAmount>2000</workAmount>
+            </RecipeDef>
+          </value>
+        </li>
+         
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <RecipeDef ParentName="AmmoRecipeBase">
+              <defName>MakeAmmo_8x37mmCaseless_Incendiary</defName>
+              <label>make 8x37mm Caseless (AP-I) cartridge x500</label>
+              <description>Craft 500 8x37mm Caseless (AP-I) cartridges.</description>
+              <jobString>Making 8x37mm Caseless (AP-I) cartridges.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>20</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Prometheum</li>
+                    </thingDefs>
+                  </filter>
+                  <count>2</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>Steel</li>
+                  <li>Prometheum</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Ammo_8x37mmCaseless_Incendiary>500</Ammo_8x37mmCaseless_Incendiary>
+              </products>
+              <workAmount>2800</workAmount>
+            </RecipeDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <RecipeDef ParentName="AmmoRecipeBase">
+              <defName>MakeAmmo_8x37mmCaseless_HE</defName>
+              <label>make 8x37mm Caseless (HE) cartridge x500</label>
+              <description>Craft 500 8x37mm Caseless (HE) cartridges.</description>
+              <jobString>Making 8x37mm Caseless (HE) cartridges.</jobString>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Steel</li>
+                    </thingDefs>
+                  </filter>
+                  <count>20</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>FSX</li>
+                    </thingDefs>
+                  </filter>
+                  <count>4</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>Steel</li>
+                  <li>FSX</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Ammo_8x37mmCaseless_HE>500</Ammo_8x37mmCaseless_HE>
+              </products>
+              <workAmount>3600</workAmount>
+            </RecipeDef>
+          </value>
+        </li>
+        
+        <li Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <RecipeDef ParentName="AmmoRecipeBase">
+                <defName>MakeAmmo_8x37mmCaseless_Sabot</defName>
+                <label>make 8x37mm Caseless (Sabot) cartridge x500</label>
+                <description>Craft 500 8x37mm Caseless (Sabot) cartridges.</description>
+                <jobString>Making 8x37mm Caseless (Sabot) cartridges.</jobString>
+                <ingredients>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>12</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Uranium</li>
+                      </thingDefs>
+                    </filter>
+                    <count>2</count>
+                  </li>
+                  <li>
+                    <filter>
+                      <thingDefs>
+                        <li>Chemfuel</li>
+                      </thingDefs>
+                    </filter>
+                    <count>2</count>
+                 </li>		
+                </ingredients>
+                <fixedIngredientFilter>
+                  <thingDefs>
+                    <li>Steel</li>
+                    <li>Uranium</li>
+                    <li>Chemfuel</li>	
+                  </thingDefs>
+                </fixedIngredientFilter>
+                <products>
+                  <Ammo_8x37mmCaseless_Sabot>500</Ammo_8x37mmCaseless_Sabot>
+                </products>
+                <workAmount>2400</workAmount>
+              </RecipeDef>
+            </value>
+          </li>
+        
+      </operations>
+    </match>
+  </Operation>
+</Patch>
