@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <SoundDef>
+    <defName>Shot_M46</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Shot/untitled2</clipFolderPath>
+          </li>
+        </grains>
+        <pitchRange>0.9770592~1.114706</pitchRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Shot_M206</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Shot/Shot_M206</clipFolderPath>
+          </li>
+        </grains>
+        <pitchRange>0.9770592~1.114706</pitchRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Shot_RPN</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Shot/Shot_RPN</clipFolderPath>
+          </li>
+        </grains>
+        <pitchRange>0.9770592~1.114706</pitchRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Shot_Tsvetnova</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Shot/Shot_Tsvetnova</clipFolderPath>
+          </li>
+        </grains>
+        <pitchRange>0.9770592~1.114706</pitchRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+<!--alternate sounds-->
+
+  <SoundDef>
+    <defName>Shot_ChargedTsvetnova</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Shot/Alternate/Shot_chargedTsvetnova</clipFolderPath>
+          </li>
+        </grains>
+        <pitchRange>0.9770592~1.114706</pitchRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Shot_ChargedM206</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Shot/Alternate/Shot_chargedM206</clipFolderPath>
+          </li>
+        </grains>
+        <pitchRange>0.9770592~1.114706</pitchRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Shot_ChargedM46</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Shot/Alternate/Shot_chargedM46</clipFolderPath>
+          </li>
+        </grains>
+        <pitchRange>0.9770592~1.114706</pitchRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Shot_ChargedRPN</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Shot/Alternate/Shot_chargedRPN</clipFolderPath>
+          </li>
+        </grains>
+        <pitchRange>0.9770592~1.114706</pitchRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <!--Interact-->
+  <SoundDef>
+    <defName>Interact_Tsvetnova</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Interact/Interact_Tsvetnova</clipPath>
+          </li>
+        </grains>
+        <volumeRange>25~25</volumeRange>
+        <paramMappings>
+          <li>
+            <inParam Class="SoundParamSource_CameraAltitude" />
+            <outParam Class="SoundParamTarget_PropertyReverb">
+              <baseSetup>
+                <dryLevel>0</dryLevel>
+                <room>-1000</room>
+                <roomHF>-6000</roomHF>
+                <roomLF>0</roomLF>
+                <decayTime>0.17</decayTime>
+                <decayHFRatio>0.1</decayHFRatio>
+                <reflectionsLevel>-1204</reflectionsLevel>
+                <reflectionsDelay>0</reflectionsDelay>
+                <reverbLevel>207</reverbLevel>
+                <reverbDelay>0.002</reverbDelay>
+                <hfReference>5000</hfReference>
+                <lfReference>250</lfReference>
+                <diffusion>100</diffusion>
+                <density>100</density>
+              </baseSetup>
+              <targetSetup>
+                <dryLevel>0</dryLevel>
+                <room>-1000</room>
+                <roomHF>-500</roomHF>
+                <roomLF>0</roomLF>
+                <decayTime>3.92</decayTime>
+                <decayHFRatio>0.7</decayHFRatio>
+                <reflectionsLevel>-1230</reflectionsLevel>
+                <reflectionsDelay>0</reflectionsDelay>
+                <reverbLevel>-2</reverbLevel>
+                <reverbDelay>0.029</reverbDelay>
+                <hfReference>5000</hfReference>
+                <lfReference>250</lfReference>
+                <diffusion>100</diffusion>
+                <density>100</density>
+              </targetSetup>
+            </outParam>
+            <paramUpdateMode>Constant</paramUpdateMode>
+            <curve>
+              <points>
+                <li>
+                  <loc>
+                    <x>0</x>
+                    <y>0</y>
+                  </loc>
+                </li>
+                <li>
+                  <loc>
+                    <x>28.00688</x>
+                    <y>0.7644969</y>
+                  </loc>
+                </li>
+                <li>
+                  <loc>
+                    <x>52.18179</x>
+                    <y>0.9989628</y>
+                  </loc>
+                </li>
+              </points>
+            </curve>
+          </li>
+        </paramMappings>
+        <filters>
+          <li Class="SoundFilterReverb">
+            <baseSetup>
+              <dryLevel>0</dryLevel>
+              <room>0</room>
+              <roomHF>0</roomHF>
+              <roomLF>0</roomLF>
+              <decayTime>1</decayTime>
+              <decayHFRatio>0.5</decayHFRatio>
+              <reflectionsLevel>-10000</reflectionsLevel>
+              <reflectionsDelay>0</reflectionsDelay>
+              <reverbLevel>0</reverbLevel>
+              <reverbDelay>0.04</reverbDelay>
+              <hfReference>5000</hfReference>
+              <lfReference>250</lfReference>
+              <diffusion>100</diffusion>
+              <density>100</density>
+            </baseSetup>
+          </li>
+        </filters>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>Interact_RPN</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Interact/Interact_RPN</clipPath>
+          </li>
+        </grains>
+        <volumeRange>25~25</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+</Defs>

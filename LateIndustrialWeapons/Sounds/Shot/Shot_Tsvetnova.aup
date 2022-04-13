@@ -1,0 +1,43 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="Shot_Tsvetnova_data" version="1.3.0" audacityversion="2.4.2" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="0.0000000000" zoom="760.6885909734" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="Encoded by" value="Sound Grinder 3.5.5"/>
+	</tags>
+	<wavetrack name="Shot_Tsvetnova" isSelected="1" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="44100" gain="0.794328" pan="0.0" colorindex="0">
+		<waveclip offset="0.01943311" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="98221">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808cff.au" len="824" min="-0.001885" max="0.000774" rms="0.000667"/>
+				</waveblock>
+				<waveblock start="824">
+					<simpleblockfile filename="e08086b2.au" len="97397" min="-0.97199" max="0.718859" rms="0.036592"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Shot_Tsvetnova" isSelected="1" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="44100" gain="0.794328" pan="0.0" colorindex="0">
+		<waveclip offset="0.01943311" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="98221">
+				<waveblock start="0">
+					<simpleblockfile filename="e08084d0.au" len="824" min="-0.000793" max="0.005932" rms="0.002747"/>
+				</waveblock>
+				<waveblock start="824">
+					<simpleblockfile filename="e0808680.au" len="97397" min="-0.722765" max="0.636526" rms="0.057978"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ChargeShotA" isSelected="0" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="0.446684" pan="0.0" colorindex="0">
+		<waveclip offset="0.04863946" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="44367">
+				<waveblock start="0">
+					<simpleblockfile filename="e08082e1.au" len="44367" min="-0.844269" max="0.810486" rms="0.056004"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
